@@ -47,6 +47,7 @@ const students = [
       }
     },
     
+    // add these functions for homework 11/28/23
     add: function (req, res) {
         res.send("You asked to create the following student " + JSON.stringify(req.body))
     },
