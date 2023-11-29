@@ -46,18 +46,29 @@ const students = [
           res.sendStatus(404)
       }
     },
-    
+        //  ***************************** *****************************   
+
     // add these functions for homework 11/28/23
     add: function (req, res) {
         res.send("You asked to create the following student " + JSON.stringify(req.body))
+
+      // Route to add a new student
+      app.post('/add', function (req, res) {
+      });
     },
-    
+        //  ***************************** *****************************   
+
     update: function (req, res) {
         res.send("You asked to update student " + req.params.id + " with the following data " + JSON.stringify(req.body))
+
     },
+
     
+    //  ***************************** *****************************   
     delete: function (req, res) {
-        res.send("You asked to delete student " + req.params.id)
+router.delete('/delete/:id', function (req, res) {
+});
+        
     }
 
   }
