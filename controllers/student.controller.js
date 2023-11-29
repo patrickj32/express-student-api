@@ -52,25 +52,46 @@ const students = [
     add: function (req, res) {
         res.send("You asked to create the following student " + JSON.stringify(req.body))
 
-      // Route to add a new student
-      app.post('/add', function (req, res) {
-      });
+      
+          const newStudent = {
+            id: students.length + 1,
+            first_name: req.body.first_name,
+            last_name: req.body.last_name,
+            email: req.body.email,
+            major: req.body.major,
+            ip_address: req.body.ip_address,
+          };
+      
+          students.push(newStudent);
+          res.status(201).json(newStudent);
+        
+
+
     },
         //  ***************************** *****************************   
 
-    update: function (req, res) {
-        res.send("You asked to update student " + req.params.id + " with the following data " + JSON.stringify(req.body))
-
-    },
+         update: function (req, res) {
+        res.send(
+          "You asked to update student " +
+            req.params.id +
+            " with the following data " +
+            JSON.stringify(req.body)
+        );
+      },
+    
 
     
     //  ***************************** *****************************   
-    delete: function (req, res) {
-router.delete('/delete/:id', function (req, res) {
-});
-        
-    }
+     delete: function (req, res) {
+    const studentIndex = students.findIndex((student) => student.id === parseInt(req.params.id));
 
-  }
+    if (studentIndex !== -1) {
+      students.splice(studentIndex, 1);
+      res.sendStatus(204);
+    } else {
+      res.sendStatus(404);
+    }
+  },
+};
 
   module.exports = studentController;

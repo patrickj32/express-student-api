@@ -14,10 +14,10 @@ router.get("/students/:id", studentController.findById)
 router.post("/students", studentController.add)
 
 
-//updatge a student by id 
+//update a student by id 
 router.put("/students/:id", studentController.update)
 
-//updatge a student by id 
+//update a student by id 
 router.delete("/students/:id", studentController.delete)
 
 module.exports = router;
