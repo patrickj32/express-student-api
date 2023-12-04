@@ -24,6 +24,9 @@ res.send('You have reached the top-level route with a GET');
 const studentRouter = require("./routes/student.routes")
 app.use('/api', studentRouter);
 
+const guitarRouter = require("./routes/guitar.routes");
+app.use('/api', guitarRouter);
+
 //basically fire up the express app.
 app.listen(port, function () {
     console.log(`Example app listening on port ${port}!`)
